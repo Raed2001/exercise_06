@@ -36,7 +36,7 @@ public class Testtreiber {
         dishes[o++] = new DessertVO(23, "Hausgemachtes Tiramisu", 2.80f);
 
 
-     OrderVO myOrder = new OrderVO(LocalDateTime.now(),new CustomerVO());
+   /**  OrderVO myOrder = new OrderVO(LocalDateTime.now(),new CustomerVO());
 
 
 
@@ -51,7 +51,7 @@ public class Testtreiber {
 
                         myOrder.getDish(i), dishes[i % dishes.length], "Dishes in OrderVO equal the given dishes");
             }
-
+**/
 
 /**
         LocalDate today = LocalDate.now();

@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class OrderVO {
     private int OrderNo;
-    private static int nextOrderNo=0;
+
     private LocalDateTime timestampStartedOrder;
     private LocalDateTime timestampDeliverdOrder;
     private final static int MAX_DISHES=10;
@@ -30,9 +30,6 @@ public class OrderVO {
         return OrderNo;
     }
 
-    public static int getNextOrderNo() {
-        return nextOrderNo;
-    }
 
     public LocalDateTime getTimestampStartedOrder() {
         return timestampStartedOrder;
@@ -118,38 +115,18 @@ public class OrderVO {
         
     }
 
-    public OrderVO(LocalDateTime timestampStartedOrder,CustomerVO customer) {
+    public OrderVO(int orderNo, String state, LocalDateTime timestampStartedOrder,CustomerVO customer) {
 
 shoppingBasket=new DishVO[getMAX_DISHES()];
-state="started";
+setState(state);
 index=0;
         setCustomer(customer);
         setTimestampStartedOrder(timestampStartedOrder);
 
-        if (nextOrderNo==0){
-            nextOrderNo++;
-        }
-        String date = String.valueOf(getTimestampStartedOrder().getYear());
-        if (Integer.parseInt(date)<LocalDate.now().getYear()){
-            date=String.valueOf(LocalDate.now().getYear());
-        }
 
-        int length = String.valueOf(nextOrderNo).length();
-        String zeros="";
-        switch (length){
-            case 1:zeros="0000";
-            break;
-            case 2:zeros="000";
-            break;
-            case 3:zeros="00";
-            break;
-            case 4:zeros="0";
-            break;
-        }
 
-        String OrderNoS= getTimestampStartedOrder().getYear() +zeros+ nextOrderNo;
-        OrderNo= Integer.parseInt(OrderNoS);
-nextOrderNo++;
+        OrderNo= orderNo;
+
     }
     
     public void addDish(DishVO dish){

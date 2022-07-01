@@ -57,6 +57,6 @@ public abstract class EmployeeVO extends PersonVO {
 
     @Override
     public String toString() {
-        return super.toString()+"\n"+"Personalnummer: "+getPersonnelNo()+"\n"+"Gehalt: "+getSalary()+"\n"+"Urlaubstage: "+getVacationDays();
+        return super.toString() + "\n" + "Personalnummer: " + getPersonnelNo() + "\n" + "Gehalt: " + getSalary() + "\n" + "Urlaubstage: " + getVacationDays();
     }
 }
